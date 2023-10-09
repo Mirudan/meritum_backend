@@ -19,7 +19,7 @@ class Course(models.Model):
     content = models.TextField()
     image = models.BinaryField(blank=True, null=True)
     publication_date = models.DateField()
-    teacher = models.ForeignKey('teachers.models.Teacher', models.DO_NOTHING)
+    teacher = models.ForeignKey('Teacher', models.DO_NOTHING)
 
     class Meta:
         managed = False
