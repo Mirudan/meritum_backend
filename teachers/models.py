@@ -7,7 +7,7 @@ class Teacher(models.Model):
     password = models.CharField(max_length=128)
     full_name = models.TextField()
     position = models.TextField()
-    email = models.CharField(max_length=128, blank=True, null=True)
+    email = models.EmailField(max_length=128, blank=True, null=True)
     phone = models.IntegerField(blank=True, null=True)
     subjects = models.ForeignKey('Subject', models.DO_NOTHING, blank=True, null=True)
 
