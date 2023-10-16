@@ -1,3 +1,28 @@
 from django.shortcuts import render
+from rest_framework import generics, viewsets
+from rest_framework.response import Response
 
-# Create your views here.
+from announcements.models import News
+from announcements.serializers import NewsSerializer
+
+
+class NewsAPIList(generics.ListAPIView):
+    """
+    Показывает весь список
+    """
+    queryset = News.objects.all()
+    serializer_class = NewsSerializer
+
+
+class NewsAPIDetails(viewsets.ViewSet):
+    def retrieve(self, request, pk=None):
+        """
+        Выводит один элемент
+        """
+        try:
+            news = News.objects.get(pk=pk)
+        except News.DoesNotExist:
+            return Response(status=404)
+
+        serializer_class = NewsSerializer(news)
+        return Response(serializer_class.data)
