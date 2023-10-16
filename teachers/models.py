@@ -11,6 +11,9 @@ class Teacher(models.Model):
     phone = models.IntegerField(blank=True, null=True)
     subjects = models.ForeignKey('Subject', models.DO_NOTHING, blank=True, null=True)
 
+    def __str__(self):
+        return str(self.teacher_id)
+
     class Meta:
         managed = False
         db_table = 'teacher'
