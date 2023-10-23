@@ -8,7 +8,7 @@ from announcements.serializers import NewsSerializer
 
 class NewsAPIList(generics.ListAPIView):
     """
-    Показывает весь список
+    Показывает весь список новостей
     """
     queryset = News.objects.all()
     serializer_class = NewsSerializer
@@ -17,7 +17,7 @@ class NewsAPIList(generics.ListAPIView):
 class NewsAPIDetails(viewsets.ViewSet):
     def retrieve(self, request, pk=None):
         """
-        Выводит один элемент
+        Выводит одну новость по индексу
         """
         try:
             news = News.objects.get(pk=pk)
