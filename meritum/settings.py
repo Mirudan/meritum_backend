@@ -30,12 +30,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'drf_yasg',
-    'admins',
-    'students',
-    'announcements',
-    'diary',
-    'groups',
-    'teachers'
+    'admins.apps.AdminsConfig',
+    'students.apps.StudentsConfig',
+    'announcements.apps.AnnouncementsConfig',
+    'diary.apps.DiaryConfig',
+    'groups.apps.GroupsConfig',
+    'teachers.apps.TeachersConfig'
 ]
 
 MIDDLEWARE = [
