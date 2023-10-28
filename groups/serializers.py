@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from groups.models import Specialization, Semester, Class
+from groups.models import Specialization, Semester, ClassField
 
 
 class SpecializationSerializer(serializers.ModelSerializer):
@@ -15,7 +15,7 @@ class SemesterSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class ClassSerializer(serializers.ModelSerializer):
+class ClassFieldSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Class
+        model = ClassField
         fields = '__all__'

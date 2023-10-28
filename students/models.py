@@ -1,6 +1,6 @@
 from django.db import models
 
-from groups.models import Class
+from groups.models import ClassField
 
 
 class Student(models.Model):
@@ -9,7 +9,7 @@ class Student(models.Model):
     password = models.CharField(max_length=128)
     full_name = models.TextField()
     email = models.CharField(max_length=128)
-    class_field = models.ForeignKey(Class, models.DO_NOTHING)
+    class_field = models.ForeignKey(ClassField, models.DO_NOTHING)
 
     def __str__(self):
         return str(self.student_id)
