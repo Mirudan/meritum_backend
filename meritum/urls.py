@@ -5,6 +5,7 @@ from drf_yasg import openapi
 from rest_framework import permissions
 
 from announcements.views import NewsAPIList, NewsAPIDetails, CourseAPIList, CourseAPIDetails
+from diary.views import ScheduleAPIList, ScheduleAPIRUDV, ScheduleAPIListCreate
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -29,5 +30,11 @@ urlpatterns = [
     # отображение списка объявлений о доп курсах
     path('api/v1/courses/', CourseAPIList.as_view()),
     # отображение новости доп курса по индексу
-    path('api/v1/courses/<int:pk>/', CourseAPIDetails.as_view({'get': 'retrieve'}))
+    path('api/v1/courses/<int:pk>/', CourseAPIDetails.as_view({'get': 'retrieve'})),
+    # отображение данных для расписания
+    path('api/v1/schedule/', ScheduleAPIList.as_view()),
+    # возможность внесения данных
+    path('api/v1/schedule/create/', ScheduleAPIListCreate.as_view()),
+    # отображение конкретных данных с возможностью внесения и изменения
+    path('api/v1/schedule/<int:pk>/', ScheduleAPIRUDV.as_view()),
 ]
