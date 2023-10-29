@@ -3,9 +3,9 @@ from django.urls import path, include
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import permissions
-
 from announcements.views import NewsAPIList, NewsAPIDetails, CourseAPIList, CourseAPIDetails
 from diary.views import ScheduleAPIList, ScheduleAPIRUDV, ScheduleAPIListCreate
+
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -37,4 +37,6 @@ urlpatterns = [
     path('api/v1/schedule/create/', ScheduleAPIListCreate.as_view()),
     # отображение конкретных данных с возможностью внесения и изменения
     path('api/v1/schedule/<int:pk>/', ScheduleAPIRUDV.as_view()),
+    path('api/v1/admins/', include('admins.urls')),
+    path('api/v1/students/', include('students.urls'))
 ]

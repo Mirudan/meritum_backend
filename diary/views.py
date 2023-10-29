@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from rest_framework import generics
-
+from admins.permissions import IsAdminUser
 from diary.models import Schedule
 from diary.serializers import ScheduleSerializer
+from rest_framework.permissions import AllowAny
 
 
 class ScheduleAPIList(generics.ListAPIView):
@@ -19,6 +20,7 @@ class ScheduleAPIListCreate(generics.ListCreateAPIView):
     """
     queryset = Schedule.objects.all()
     serializer_class = ScheduleSerializer
+    permission_classes = [AllowAny, IsAdminUser]
 
 
 class ScheduleAPIRUDV(generics.RetrieveUpdateDestroyAPIView):
@@ -27,3 +29,4 @@ class ScheduleAPIRUDV(generics.RetrieveUpdateDestroyAPIView):
     """
     queryset = Schedule.objects.all()
     serializer_class = ScheduleSerializer
+    permission_classes = [AllowAny, IsAdminUser]
