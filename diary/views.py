@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework import generics
 from admins.permissions import IsAdminUser
 from diary.models import Schedule
-from diary.serializers import ScheduleSerializer
+from diary.serializers import ScheduleSerializer, ScheduleSerializerCreate
 from rest_framework.permissions import AllowAny
 
 
@@ -19,7 +19,7 @@ class ScheduleAPIListCreate(generics.ListCreateAPIView):
     Показывает весь список новостей по GET запросу и дает возможность внесения данных
     """
     queryset = Schedule.objects.all()
-    serializer_class = ScheduleSerializer
+    serializer_class = ScheduleSerializerCreate
     permission_classes = [AllowAny, IsAdminUser]
 
 

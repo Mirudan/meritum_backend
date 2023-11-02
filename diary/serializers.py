@@ -7,7 +7,7 @@ from groups.serializers import ClassFieldSerializer
 class SubjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Subject
-        fields = '__all__'
+        fields = ['subjects_id', 'name']
 
 
 class MarkSerializer(serializers.ModelSerializer):
@@ -17,9 +17,15 @@ class MarkSerializer(serializers.ModelSerializer):
 
 
 class ScheduleSerializer(serializers.ModelSerializer):
-    subject = SubjectSerializer()
-    class_field = ClassFieldSerializer()
+    subject = SubjectSerializer(read_only=True)
+    class_field = ClassFieldSerializer(read_only=True)
 
+    class Meta:
+        model = Schedule
+        fields = ['schedule_id', 'date_lesson', 'start_time', 'finish_time', 'subject', 'class_field']
+
+
+class ScheduleSerializerCreate(serializers.ModelSerializer):
     class Meta:
         model = Schedule
         fields = ['schedule_id', 'date_lesson', 'start_time', 'finish_time', 'subject', 'class_field']
