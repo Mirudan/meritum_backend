@@ -20,7 +20,7 @@ class ScheduleAPIListCreate(generics.ListCreateAPIView):
     """
     queryset = Schedule.objects.all()
     serializer_class = ScheduleSerializerCreate
-    permission_classes = [AllowAny, IsAdminUser]
+    # permission_classes = [AllowAny, IsAdminUser]
 
 
 class ScheduleAPIRUDV(generics.RetrieveUpdateDestroyAPIView):
@@ -29,4 +29,4 @@ class ScheduleAPIRUDV(generics.RetrieveUpdateDestroyAPIView):
     """
     queryset = Schedule.objects.all()
     serializer_class = ScheduleSerializer
-    permission_classes = [AllowAny, IsAdminUser]
+    # permission_classes = [AllowAny, IsAdminUser]
