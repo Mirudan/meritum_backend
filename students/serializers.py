@@ -1,5 +1,4 @@
 from rest_framework import serializers
-
 from students.models import Student
 
 
@@ -10,5 +9,6 @@ class StudentSerializer(serializers.ModelSerializer):
 
 
 class StudentObtainTokenSerializer(serializers.Serializer):
-    email = serializers.EmailField()
-    password = serializers.CharField()
+    class Meta:
+        model = Student
+        fields = ('email', 'password')

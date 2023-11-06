@@ -27,5 +27,6 @@ urlpatterns = [
     # отображение данных для управления расписанием
     path('api/v1/schedule/', include('diary.urls')),
     path('api/v1/admins/', include('admins.urls')),
-    path('api/v1/students/', include('students.urls'))
+    path('api/v1/students/', include('students.urls')),
+    path('api/v1/teachers/', include('teachers.urls'))
 ]
