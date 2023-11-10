@@ -10,12 +10,16 @@ class SpecializationSerializer(serializers.ModelSerializer):
 
 
 class SemesterSerializer(serializers.ModelSerializer):
+    specialization = SpecializationSerializer()
+
     class Meta:
         model = Semester
-        fields = '__all__'
+        fields = ['semester_id', 'number', 'specialization']
 
 
 class ClassFieldSerializer(serializers.ModelSerializer):
+    semester = SemesterSerializer()
+
     class Meta:
         model = ClassField
-        fields = '__all__'
+        fields = ['class_field_id', 'number', 'semester']
