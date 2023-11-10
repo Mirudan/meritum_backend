@@ -28,5 +28,6 @@ urlpatterns = [
     path('api/v1/schedule/', include('diary.urls')),
     path('api/v1/admins/', include('admins.urls')),
     path('api/v1/students/', include('students.urls')),
-    path('api/v1/teachers/', include('teachers.urls'))
+    path('api/v1/teachers/', include('teachers.urls')),
+    path('api/v1/', include('diary.urls'))
 ]

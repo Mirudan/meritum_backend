@@ -18,6 +18,7 @@ class Subject(models.Model):
 
 class Mark(models.Model):
     mark_id = models.AutoField(primary_key=True)
+    date_mark = models.DateField()
     student = models.ForeignKey(Student, models.DO_NOTHING)
     subject = models.ForeignKey(Subject, models.DO_NOTHING)
     mark = models.IntegerField(blank=True, null=True)

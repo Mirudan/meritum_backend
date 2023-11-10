@@ -2,6 +2,7 @@ from rest_framework import serializers
 
 from diary.models import Subject, Mark, Schedule
 from groups.serializers import ClassFieldSerializer
+from students.serializers import StudentSerializer
 
 
 class SubjectSerializer(serializers.ModelSerializer):
@@ -11,9 +12,19 @@ class SubjectSerializer(serializers.ModelSerializer):
 
 
 class MarkSerializer(serializers.ModelSerializer):
+    student = StudentSerializer(read_only=True)
+    subject = SubjectSerializer(read_only=True)
+
     class Meta:
         model = Mark
-        fields = '__all__'
+        fields = ['date_mark', 'mark_id', 'mark', 'student', 'subject']
+
+
+class MarkSerializerCreate(serializers.ModelSerializer):
+    # костыльный сериализатор
+    class Meta:
+        model = Mark
+        fields = ['date_mark', 'mark_id', 'mark', 'student', 'subject']
 
 
 class ScheduleSerializer(serializers.ModelSerializer):
@@ -26,6 +37,7 @@ class ScheduleSerializer(serializers.ModelSerializer):
 
 
 class ScheduleSerializerCreate(serializers.ModelSerializer):
+    # костыльный сериализатор
     class Meta:
         model = Schedule
         fields = ['schedule_id', 'date_lesson', 'start_time', 'finish_time', 'subject', 'class_field']
