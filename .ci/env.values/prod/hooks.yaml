@@ -1,0 +1,7 @@
+hooks:
+  jobs:
+    migrations:
+      enabled: true
+      env:
+        PYTHONUNBUFFERED: 1
+        PYTHONDONTWRITEBYTECODE: 1
