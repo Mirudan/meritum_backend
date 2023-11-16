@@ -15,4 +15,3 @@ hooks:
           python manage.py makemigrations --no-input -v 3 --force-color;
           python manage.py makemigrations --merge --no-input -v 3 --force-color;
           python manage.py migrate --force-color -v 3;
-          ls -la taskmanager/migrations;
