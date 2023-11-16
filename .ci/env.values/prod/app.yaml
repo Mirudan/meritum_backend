@@ -1,0 +1,40 @@
+env:
+  PYTHONUNBUFFERED: 1
+  PYTHONDONTWRITEBYTECODE: 1
+  DB_ENGINE: django.db.backends.postgresql
+  DB_NAME:
+    valueFrom:
+      secretKeyRef:
+        name: meritum-backend-pgsql-creds
+        key: database
+  DB_USER:
+    valueFrom:
+      secretKeyRef:
+        name: meritum-backend-pgsql-creds
+        key: user
+  DB_PASSWORD:
+    valueFrom:
+      secretKeyRef:
+        name: meritum-backend-pgsql-creds
+        key: password
+  DB_HOST:
+    valueFrom:
+      secretKeyRef:
+        name: meritum-backend-pgsql-creds
+        key: host
+  SECRET_KEY: "{{ .Values.DJANGO_SECRET_KEY }}"
+  DB_PORT: 6432
+
+imagePullSecrets:
+  - name: gitlab-cr
+
+replicaCount: 1
+
+ingress:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    nginx.ingress.kubernetes.io/proxy-body-size: 16m
+  hosts:
+    - host: "{{ .Values.CI_FQDN }}"
+      paths:
+        - "/"
