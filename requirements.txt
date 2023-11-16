@@ -11,7 +11,7 @@ inflection==0.5.1
 packaging==23.2
 pipenv==2023.10.3
 platformdirs==3.11.0
-psycopg==3.1.12
+psycopg-binary==3.1.12
 PyJWT==2.8.0
 python-decouple==3.8
 pytz==2023.3.post1
@@ -21,3 +21,4 @@ typing_extensions==4.8.0
 tzdata==2023.3
 uritemplate==4.1.1
 virtualenv==20.24.5
+gunicorn==21.2.0
