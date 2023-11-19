@@ -1,6 +1,6 @@
 from django.db import models
 
-from groups.models import Class
+from groups.models import ClassField
 from students.models import Student
 
 
@@ -18,6 +18,7 @@ class Subject(models.Model):
 
 class Mark(models.Model):
     mark_id = models.AutoField(primary_key=True)
+    date_mark = models.DateField()
     student = models.ForeignKey(Student, models.DO_NOTHING)
     subject = models.ForeignKey(Subject, models.DO_NOTHING)
     mark = models.IntegerField(blank=True, null=True)
@@ -33,7 +34,7 @@ class Mark(models.Model):
 class Schedule(models.Model):
     schedule_id = models.AutoField(primary_key=True)
     subject = models.ForeignKey(Subject, models.DO_NOTHING)
-    class_field = models.ForeignKey(Class, models.DO_NOTHING)
+    class_field = models.ForeignKey(ClassField, models.DO_NOTHING)
     date_lesson = models.DateField()
     start_time = models.TimeField()
     finish_time = models.TimeField(blank=True, null=True)
