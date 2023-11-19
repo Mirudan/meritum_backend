@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'drf_yasg',
+
     'admins.apps.AdminsConfig',
     'students.apps.StudentsConfig',
     'announcements.apps.AnnouncementsConfig',

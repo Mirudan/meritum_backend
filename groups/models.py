@@ -9,8 +9,11 @@ class Specialization(models.Model):
         return str(self.specialization_id)
 
     class Meta:
-        managed = False
-        db_table = 'specialization'
+        # managed = False
+        # db_table = 'specialization'
+        verbose_name = 'specialization'
+        verbose_name_plural = 'specializations'
+        ordering = ['specialization_id']
 
 
 class Semester(models.Model):
@@ -22,8 +25,11 @@ class Semester(models.Model):
         return str(self.semester_id)
 
     class Meta:
-        managed = False
-        db_table = 'semester'
+        # managed = False
+        # db_table = 'semester'
+        verbose_name = 'semester'
+        verbose_name_plural = 'semesters'
+        ordering = ['semester_id']
 
 
 class ClassField(models.Model):
@@ -35,5 +41,8 @@ class ClassField(models.Model):
         return str(self.class_field_id)
 
     class Meta:
-        managed = False
-        db_table = 'class_field'
+        # managed = False
+        # db_table = 'class_field'
+        verbose_name = 'class_field'
+        verbose_name_plural = 'class_fields'
+        ordering = ['class_field_id']
