@@ -17,5 +17,8 @@ class Teacher(models.Model):
         return str(self.teacher_id)
 
     class Meta:
-        managed = False
-        db_table = 'teacher'
+        # managed = False
+        # db_table = 'teacher'
+        verbose_name = 'teacher'
+        verbose_name_plural = 'teachers'
+        ordering = ['teacher_id']

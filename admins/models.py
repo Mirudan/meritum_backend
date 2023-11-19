@@ -10,5 +10,8 @@ class Admin(models.Model):
         return str(self.admin_id)
 
     class Meta:
-        managed = False
-        db_table = 'admin'
+        # managed = False
+        # db_table = 'admin'
+        verbose_name = 'admin'
+        verbose_name_plural = 'admins'
+        ordering = ['admin_id']
