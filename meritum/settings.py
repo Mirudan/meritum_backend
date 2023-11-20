@@ -151,3 +151,5 @@ TOKEN_LIFETIME_HOURS = 12
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = ['https://api.meritum.pnpl.tech/', 'https://www.api.meritum.pnpl.tech/']
