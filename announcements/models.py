@@ -26,6 +26,7 @@ class Course(models.Model):
     title = models.CharField(max_length=256)
     content = models.TextField()
     image = models.ImageField(blank=True, null=True)
+    event_date = models.DateField(blank=True, null=True)
     publication_date = models.DateField()
     teacher = models.ForeignKey(Teacher, models.DO_NOTHING)
 
