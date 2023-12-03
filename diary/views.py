@@ -29,7 +29,7 @@ class ScheduleAPIRUDV(generics.RetrieveUpdateDestroyAPIView):
     """
     queryset = Schedule.objects.all()
     serializer_class = ScheduleSerializer
-    # permission_classes = [AllowAny, IsAdminUser]
+    permission_classes = [AllowAny, IsAdminUser]
 
 
 class MarkAPIList(generics.ListAPIView):
