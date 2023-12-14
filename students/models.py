@@ -14,5 +14,8 @@ class Student(models.Model):
         return str(self.student_id)
 
     class Meta:
-        managed = False
-        db_table = 'student'
+        # managed = False
+        # db_table = 'student'
+        verbose_name = 'student'
+        verbose_name_plural = 'students'
+        ordering = ['student_id']
