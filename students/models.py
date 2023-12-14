@@ -1,14 +1,17 @@
 from django.db import models
-from groups.models import ClassField
+from groups.models import ClassField, Specialization
 
 
 class Student(models.Model):
     student_id = models.AutoField(primary_key=True)
-    login = models.CharField(max_length=128)
+    photo = models.ImageField(upload_to='photos/students/', verbose_name='Аватар', null=True, blank=True)
+    login = models.EmailField(unique=True)
     password = models.CharField(max_length=128)
-    full_name = models.TextField()
-    email = models.CharField(max_length=128)
-    class_field = models.ForeignKey(ClassField, models.DO_NOTHING)
+    full_name = models.TextField(verbose_name='Полное имя')
+    email = models.EmailField(unique=True, verbose_name='Email')
+    class_field = models.ForeignKey(ClassField, models.DO_NOTHING, verbose_name='Курс')
+    specialization = models.ForeignKey(Specialization, models.DO_NOTHING, verbose_name='Специализация', null=True,
+                                       blank=True)
 
     def __str__(self):
         return str(self.student_id)
@@ -16,6 +19,6 @@ class Student(models.Model):
     class Meta:
         # managed = False
         # db_table = 'student'
-        verbose_name = 'student'
-        verbose_name_plural = 'students'
+        verbose_name = 'Студент'
+        verbose_name_plural = 'Студенты'
         ordering = ['student_id']
