@@ -9,7 +9,7 @@ class StudentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Student
-        fields = '__all__'
+        fields = ['student_id', 'full_name', 'login', 'password', 'email', 'class_field']
 
 
 class StudentObtainTokenSerializer(serializers.Serializer):
