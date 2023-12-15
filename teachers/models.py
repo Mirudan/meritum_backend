@@ -5,6 +5,7 @@ from diary.models import Subject
 
 class Teacher(models.Model):
     teacher_id = models.AutoField(primary_key=True)
+    photo = models.ImageField(upload_to='photo/teachers', blank=True, null=True)
     login = models.EmailField(unique=True)
     password = models.CharField(max_length=128)
     full_name = models.TextField()
