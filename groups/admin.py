@@ -12,13 +12,13 @@ class SpecializationAdmin(admin.ModelAdmin):
 
 @admin.register(Semester)
 class SemesterAdmin(admin.ModelAdmin):
-    list_display = ('number', 'specialization')
-    list_filter = ('number', 'specialization')
-    search_fields = ('number', 'specialization')
+    list_display = ('number', )
+    list_filter = ('number', )
+    search_fields = ('number', )
 
 
 @admin.register(ClassField)
 class ClassFieldAdmin(admin.ModelAdmin):
-    list_display = ('number', 'semester')
-    list_filter = ('number', 'semester')
-    search_fields = ('number', 'semester')
+    list_display = ('number',)
+    list_filter = ('number',)
+    search_fields = ('number',)
