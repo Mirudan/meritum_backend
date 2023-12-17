@@ -1,18 +1,7 @@
 from django.db import models
 
-from groups.models import ClassField, Specialization, Semester
+from groups.models import ClassField
 from students.models import Student
-
-
-class PlanLesson(models.Model):
-    plan_lesson_id = models.AutoField(primary_key=True)
-    numbers_lesson = models.IntegerField(verbose_name="Номер урока")
-    start_time = models.DateTimeField(verbose_name="Начало урока")
-    end_time = models.DateTimeField(verbose_name="Окончание урока")
-
-    class Meta:
-        verbose_name_plural = "Расписание звонков"
-        ordering = ["plan_lesson_id"]
 
 
 class Subject(models.Model):
@@ -50,12 +39,11 @@ class Mark(models.Model):
 
 class Schedule(models.Model):
     schedule_id = models.AutoField(primary_key=True)
-    specialization = models.ForeignKey(Specialization, models.DO_NOTHING)
-    semester = models.ForeignKey(Semester, models.DO_NOTHING)
     subject = models.ForeignKey(Subject, models.DO_NOTHING)
     class_field = models.ForeignKey(ClassField, models.DO_NOTHING)
     date_lesson = models.DateField()
-    plan_lesson = models.ForeignKey(PlanLesson, models.DO_NOTHING)
+    start_time = models.TimeField()
+    finish_time = models.TimeField(blank=True, null=True)
 
     def __str__(self):
         return str(self.schedule_id)
@@ -63,6 +51,6 @@ class Schedule(models.Model):
     class Meta:
         # managed = False
         # db_table = 'schedule'
-        verbose_name = 'Расписание'
-        verbose_name_plural = 'Расписания'
+        verbose_name = 'schedule'
+        verbose_name_plural = 'schedules'
         ordering = ['schedule_id']
