@@ -19,6 +19,6 @@ class SemesterAdmin(admin.ModelAdmin):
 
 @admin.register(ClassField)
 class ClassFieldAdmin(admin.ModelAdmin):
-    list_display = ('number', 'semester')
-    list_filter = ('number', 'semester')
-    search_fields = ('number', 'semester')
+    list_display = ('number', )
+    list_filter = ('number', )
+    search_fields = ('number', )
