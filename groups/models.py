@@ -18,7 +18,7 @@ class Specialization(models.Model):
 
 class Semester(models.Model):
     semester_id = models.AutoField(primary_key=True)
-    number = models.IntegerField()
+    number = models.CharField(max_length=64)
     specialization = models.ForeignKey(Specialization, models.DO_NOTHING)
 
     def __str__(self):
