@@ -35,6 +35,7 @@ class Semester(models.Model):
 class ClassField(models.Model):
     class_field_id = models.AutoField(primary_key=True)
     number = models.IntegerField()
+    semester = models.ForeignKey(Semester, models.DO_NOTHING)
 
     def __str__(self):
         return str(self.class_field_id)
