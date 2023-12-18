@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import StudentObtainTokenView, StudentsAPIList, StudentAPIList
+from .views import StudentsAPIList, StudentAPIList
 
 urlpatterns = [
-    path('login/', StudentObtainTokenView.as_view(), name='student-obtain-token'),
+    # path('login/', StudentObtainTokenView.as_view(), name='student-obtain-token'),
     # отображение всего списка студентов
     path('', StudentsAPIList.as_view()),
     # отображение конкретного студента
