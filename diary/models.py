@@ -52,6 +52,7 @@ class Schedule(models.Model):
     schedule_id = models.AutoField(primary_key=True)
     specialization = models.ForeignKey(Specialization, models.DO_NOTHING)
     subject = models.ForeignKey(Subject, models.DO_NOTHING)
+    classroom = models.IntegerField(blank=True, null=True)
     class_field = models.ForeignKey(ClassField, models.DO_NOTHING)
     semester = models.IntegerField()
     date_lesson = models.DateField()
