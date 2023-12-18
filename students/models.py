@@ -1,8 +1,10 @@
+from django.contrib.auth.models import User
 from django.db import models
 from groups.models import ClassField, Specialization
 
 
 class Student(models.Model):
+    user = models.OneToOneField(User, on_delete=models.DO_NOTHING)
     student_id = models.AutoField(primary_key=True)
     photo = models.ImageField(upload_to='photos/students/', verbose_name='Аватар', null=True, blank=True)
     login = models.EmailField(unique=True)

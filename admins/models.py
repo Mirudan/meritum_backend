@@ -1,9 +1,12 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
 class Admin(models.Model):
+    user = models.OneToOneField(User, on_delete=models.DO_NOTHING)
     admin_id = models.AutoField(primary_key=True)
-    login = models.CharField(max_length=50)
+    login = models.EmailField(unique=True)
+    email = models.EmailField(unique=True)
     password = models.CharField(max_length=50)
 
     def __str__(self):

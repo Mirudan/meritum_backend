@@ -1,9 +1,11 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 from diary.models import Subject
 
 
 class Teacher(models.Model):
+    user = models.OneToOneField(User, on_delete=models.DO_NOTHING)
     teacher_id = models.AutoField(primary_key=True)
     photo = models.ImageField(upload_to='photos/teachers', verbose_name='Аватар', null=True, blank=True)
     login = models.EmailField(unique=True)
