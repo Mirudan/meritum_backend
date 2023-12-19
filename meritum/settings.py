@@ -32,7 +32,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'djoser',
 
-    'admins.apps.AdminsConfig',
     'students.apps.StudentsConfig',
     'announcements.apps.AnnouncementsConfig',
     'diary.apps.DiaryConfig',
