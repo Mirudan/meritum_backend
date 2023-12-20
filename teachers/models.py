@@ -13,7 +13,6 @@ class Teacher(models.Model):
     full_name = models.TextField(verbose_name='Полное имя')
     position = models.TextField(verbose_name='Должность')
     email = models.EmailField(unique=True)
-    subjects = models.ForeignKey(Subject, models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return str(self.teacher_id)
