@@ -41,11 +41,11 @@ class ScheduleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Schedule
-        fields = ['schedule_id', 'specialization', 'subject', 'class_field', 'date_lesson', 'plan_lesson']
+        fields = ['schedule_id', 'specialization', 'subject', 'class_field', 'date_lesson', 'plan_lesson', 'semester']
 
 
 class ScheduleSerializerCreate(serializers.ModelSerializer):
     # костыльный сериализатор
     class Meta:
         model = Schedule
-        fields = ['schedule_id', 'specialization', 'subject', 'class_field', 'date_lesson', 'plan_lesson']
+        fields = ['schedule_id', 'specialization', 'subject', 'class_field', 'date_lesson', 'plan_lesson', 'semester']

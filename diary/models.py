@@ -7,8 +7,8 @@ from students.models import Student
 class PlanLesson(models.Model):
     plan_lesson_id = models.AutoField(primary_key=True)
     numbers_lesson = models.IntegerField(verbose_name="Номер урока")
-    start_time = models.DateTimeField(verbose_name="Начало урока")
-    end_time = models.DateTimeField(verbose_name="Окончание урока")
+    start_time = models.TimeField(verbose_name="Начало урока")
+    end_time = models.TimeField(verbose_name="Окончание урока")
 
     class Meta:
         verbose_name_plural = "Расписание звонков"
