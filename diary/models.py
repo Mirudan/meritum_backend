@@ -50,13 +50,15 @@ class Mark(models.Model):
 
 class Schedule(models.Model):
     schedule_id = models.AutoField(primary_key=True)
-    specialization = models.ForeignKey(Specialization, models.DO_NOTHING)
-    subject = models.ForeignKey(Subject, models.DO_NOTHING)
-    classroom = models.IntegerField(blank=True, null=True)
-    class_field = models.ForeignKey(ClassField, models.DO_NOTHING)
-    semester = models.IntegerField()
-    date_lesson = models.DateField()
-    plan_lesson = models.ForeignKey(PlanLesson, models.DO_NOTHING)
+    specialization = models.ForeignKey(Specialization, models.DO_NOTHING, verbose_name='специализация')
+    subject = models.ForeignKey(Subject, models.DO_NOTHING, verbose_name='предмет')
+    classroom = models.IntegerField(blank=True, null=True, verbose_name='кабинет')
+    class_field = models.ForeignKey(ClassField, models.DO_NOTHING, verbose_name='курс')
+    semester = models.IntegerField(verbose_name='семестр')
+    date_lesson = models.DateField(verbose_name='дата урока')
+    plan_lesson = models.ForeignKey(PlanLesson, models.DO_NOTHING, verbose_name='номер урока')
+    teacher = models.CharField(max_length=250, blank=True, null=True, verbose_name='преподаватель')
+    type_lesson = models.CharField(max_length=250, blank=True, null=True, verbose_name='тип занятия')
 
     def __str__(self):
         return str(self.schedule_id)
