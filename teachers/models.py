@@ -8,8 +8,6 @@ class Teacher(models.Model):
     user = models.OneToOneField(User, on_delete=models.DO_NOTHING)
     teacher_id = models.AutoField(primary_key=True)
     photo = models.ImageField(upload_to='photos/teachers', verbose_name='Аватар', null=True, blank=True)
-    login = models.EmailField(unique=True)
-    password = models.CharField(max_length=128)
     full_name = models.TextField(verbose_name='Полное имя')
     position = models.TextField(verbose_name='Должность')
     email = models.EmailField(unique=True)

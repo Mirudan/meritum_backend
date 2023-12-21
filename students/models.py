@@ -7,8 +7,6 @@ class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.DO_NOTHING)
     student_id = models.AutoField(primary_key=True)
     photo = models.ImageField(upload_to='photos/students/', verbose_name='Аватар', null=True, blank=True)
-    login = models.EmailField(unique=True)
-    password = models.CharField(max_length=128)
     full_name = models.TextField(verbose_name='Полное имя')
     email = models.EmailField(unique=True, verbose_name='Email')
     class_field = models.ForeignKey(ClassField, models.DO_NOTHING, verbose_name='Курс')
