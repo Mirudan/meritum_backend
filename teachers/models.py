@@ -10,7 +10,6 @@ class Teacher(models.Model):
     photo = models.ImageField(upload_to='photos/teachers', verbose_name='Аватар', null=True, blank=True)
     full_name = models.TextField(verbose_name='Полное имя')
     position = models.TextField(verbose_name='Должность')
-    email = models.EmailField(unique=True)
 
     def __str__(self):
         return str(self.teacher_id)

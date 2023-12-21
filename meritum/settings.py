@@ -167,9 +167,13 @@ CORS_ALLOW_METHODS = (
 )
 
 DJOSER = {
+    "USER_ID_FIELD": "username",
+    "LOGIN_FIELD": "email",
     'SEND_CONFIRMATION_EMAIL': True,
+    'PASSWORD_RESET_CONFIRM_URL': 'reset_password/{uid}/{token}',
     'EMAIL': {
         'confirmation': 'djoser.email.ConfirmationEmail',
+        'password_reset': 'djoser.email.PasswordResetEmail',
     },
 }
 

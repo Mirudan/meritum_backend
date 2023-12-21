@@ -8,7 +8,6 @@ class Student(models.Model):
     student_id = models.AutoField(primary_key=True)
     photo = models.ImageField(upload_to='photos/students/', verbose_name='Аватар', null=True, blank=True)
     full_name = models.TextField(verbose_name='Полное имя')
-    email = models.EmailField(unique=True, verbose_name='Email')
     class_field = models.ForeignKey(ClassField, models.DO_NOTHING, verbose_name='Курс')
     specialization = models.ForeignKey(Specialization, models.DO_NOTHING, verbose_name='Специализация', null=True,
                                        blank=True)
