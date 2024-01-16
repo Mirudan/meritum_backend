@@ -16,8 +16,8 @@ class News(models.Model):
     class Meta:
         # managed = False
         # db_table = 'news'
-        verbose_name = 'news'
-        verbose_name_plural = 'news'
+        verbose_name = 'Новость'
+        verbose_name_plural = 'Новости'
         ordering = ['news_id']
 
 
@@ -36,6 +36,6 @@ class Course(models.Model):
     class Meta:
         # managed = False
         # db_table = 'course'
-        verbose_name = 'course'
-        verbose_name_plural = 'course'
+        verbose_name = 'Дополнительный курс'
+        verbose_name_plural = 'Дополнительные курсы'
         ordering = ['course_id']

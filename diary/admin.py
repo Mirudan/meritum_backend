@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from diary.models import Subject, Mark, Schedule
+from diary.models import Subject, Mark, Schedule, PlanLesson
 
 
 @admin.register(Subject)
@@ -22,3 +22,9 @@ class ScheduleAdmin(admin.ModelAdmin):
     list_display = ('subject', 'date_lesson')
     list_filter = ('subject', 'date_lesson')
     search_fields = ('subject', 'date_lesson')
+
+
+@admin.register(PlanLesson)
+class PlanLessonAdmin(admin.ModelAdmin):
+    list_display = ('plan_lesson_id', 'numbers_lesson')
+    list_filter = ('start_time',)

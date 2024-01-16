@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
-from groups.models import ClassField
+from groups.models import ClassField, Specialization
 
 
 class Student(models.Model):
@@ -18,6 +18,6 @@ class Student(models.Model):
     class Meta:
         # managed = False
         # db_table = 'student'
-        verbose_name = 'student'
-        verbose_name_plural = 'students'
+        verbose_name = 'Студент'
+        verbose_name_plural = 'Студенты'
         ordering = ['student_id']
