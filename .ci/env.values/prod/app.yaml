@@ -24,7 +24,7 @@ env:
         key: host
   SECRET_KEY: "{{ .Values.DJANGO_SECRET_KEY }}"
   DB_PORT: 6432
-  EMAIL_HOST: smtp.gmail.com
+  EMAIL_HOST: "smtp.gmail.com"
   EMAIL_PORT: 587
   EMAIL_HOST_USER:
     valueFrom:
