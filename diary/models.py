@@ -4,6 +4,17 @@ from groups.models import ClassField
 from students.models import Student
 
 
+class PlanLesson(models.Model):
+    plan_lesson_id = models.AutoField(primary_key=True)
+    numbers_lesson = models.IntegerField(verbose_name="Номер урока")
+    start_time = models.TimeField(verbose_name="Начало урока")
+    end_time = models.TimeField(verbose_name="Окончание урока")
+
+    class Meta:
+        verbose_name_plural = "Расписание звонков"
+        ordering = ["plan_lesson_id"]
+
+
 class Subject(models.Model):
     subjects_id = models.AutoField(primary_key=True)
     name = models.TextField()
@@ -39,11 +50,15 @@ class Mark(models.Model):
 
 class Schedule(models.Model):
     schedule_id = models.AutoField(primary_key=True)
-    subject = models.ForeignKey(Subject, models.DO_NOTHING)
-    class_field = models.ForeignKey(ClassField, models.DO_NOTHING)
-    date_lesson = models.DateField()
-    start_time = models.TimeField()
-    finish_time = models.TimeField(blank=True, null=True)
+    specialization = models.ForeignKey(Specialization, models.DO_NOTHING, verbose_name='специализация')
+    subject = models.ForeignKey(Subject, models.DO_NOTHING, verbose_name='предмет')
+    classroom = models.IntegerField(blank=True, null=True, verbose_name='кабинет')
+    class_field = models.ForeignKey(ClassField, models.DO_NOTHING, verbose_name='курс')
+    semester = models.IntegerField(verbose_name='семестр')
+    date_lesson = models.DateField(verbose_name='дата урока')
+    plan_lesson = models.ForeignKey(PlanLesson, models.DO_NOTHING, verbose_name='номер урока')
+    teacher = models.CharField(max_length=250, blank=True, null=True, verbose_name='преподаватель')
+    type_lesson = models.CharField(max_length=250, blank=True, null=True, verbose_name='тип занятия')
 
     def __str__(self):
         return str(self.schedule_id)

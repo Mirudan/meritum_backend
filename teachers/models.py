@@ -1,18 +1,15 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 from diary.models import Subject
 
 
 class Teacher(models.Model):
+    user = models.OneToOneField(User, on_delete=models.DO_NOTHING)
     teacher_id = models.AutoField(primary_key=True)
-    photo = models.ImageField(upload_to='photo/teachers', blank=True, null=True)
-    login = models.EmailField(unique=True)
-    password = models.CharField(max_length=128)
-    full_name = models.TextField()
-    position = models.TextField()
-    email = models.EmailField(max_length=128, blank=True, null=True)
-    phone = models.IntegerField(blank=True, null=True)
-    # subjects = models.ForeignKey(Subject, models.DO_NOTHING, blank=True, null=True)
+    photo = models.ImageField(upload_to='photos/teachers', verbose_name='Аватар', null=True, blank=True)
+    full_name = models.TextField(verbose_name='Полное имя')
+    position = models.TextField(verbose_name='Должность')
 
     def __str__(self):
         return str(self.teacher_id)

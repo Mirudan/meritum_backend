@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from rest_framework import generics
-from admins.permissions import IsAdminUser
 from diary.models import Schedule, Mark
 from diary.serializers import ScheduleSerializer, ScheduleSerializerCreate, MarkSerializer, MarkSerializerCreate
 from rest_framework.permissions import AllowAny

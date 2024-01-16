@@ -1,14 +1,16 @@
+from django.contrib.auth.models import User
 from django.db import models
 from groups.models import ClassField
 
 
 class Student(models.Model):
+    user = models.OneToOneField(User, on_delete=models.DO_NOTHING)
     student_id = models.AutoField(primary_key=True)
-    login = models.CharField(max_length=128)
-    password = models.CharField(max_length=128)
-    full_name = models.TextField()
-    email = models.CharField(max_length=128)
-    class_field = models.ForeignKey(ClassField, models.DO_NOTHING)
+    photo = models.ImageField(upload_to='photos/students/', verbose_name='Аватар', null=True, blank=True)
+    full_name = models.TextField(verbose_name='Полное имя')
+    class_field = models.ForeignKey(ClassField, models.DO_NOTHING, verbose_name='Курс')
+    specialization = models.ForeignKey(Specialization, models.DO_NOTHING, verbose_name='Специализация', null=True,
+                                       blank=True)
 
     def __str__(self):
         return str(self.student_id)

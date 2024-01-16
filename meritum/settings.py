@@ -26,12 +26,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'rest_framework_simplejwt',
     'drf_yasg',
 
+    'rest_framework.authtoken',
     'corsheaders',
+    'djoser',
 
-    'admins.apps.AdminsConfig',
     'students.apps.StudentsConfig',
     'announcements.apps.AnnouncementsConfig',
     'diary.apps.DiaryConfig',
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'meritum.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'static')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -138,7 +138,9 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.BrowsableAPIRenderer'
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'auth.authentication.Authentication',
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     )
 }
 
@@ -151,6 +153,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = ['https://api.meritum.pnpl.tech']
 
+REGISTRATION_METHOD = 'register-email'
+
 CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOW_METHODS = (
@@ -161,3 +165,23 @@ CORS_ALLOW_METHODS = (
     "POST",
     "PUT",
 )
+
+DJOSER = {
+    "USER_ID_FIELD": "username",
+    "LOGIN_FIELD": "email",
+    'SEND_CONFIRMATION_EMAIL': True,
+    'PASSWORD_RESET_CONFIRM_URL': 'reset_password/{uid}/{token}',
+    'EMAIL': {
+        'confirmation': 'djoser.email.ConfirmationEmail',
+        'password_reset': 'djoser.email.PasswordResetEmail',
+    },
+}
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = config("EMAIL_HOST")
+EMAIL_PORT = 587
+EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
