@@ -17,6 +17,6 @@ class Teacher(models.Model):
     class Meta:
         # managed = False
         # db_table = 'teacher'
-        verbose_name = 'Учитель'
-        verbose_name_plural = 'Учителя'
+        verbose_name = 'teacher'
+        verbose_name_plural = 'teachers'
         ordering = ['teacher_id']
