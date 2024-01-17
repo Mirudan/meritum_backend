@@ -54,7 +54,7 @@ class Schedule(models.Model):
     subject = models.ForeignKey(Subject, models.DO_NOTHING, verbose_name='предмет')
     classroom = models.IntegerField(blank=True, null=True, verbose_name='кабинет')
     class_field = models.ForeignKey(ClassField, models.DO_NOTHING, verbose_name='курс')
-    semester = models.IntegerField(verbose_name='семестр')
+    semester = models.IntegerField(verbose_name='семестр', blank=True, null=True)
     date_lesson = models.DateField(verbose_name='дата урока')
     plan_lesson = models.ForeignKey(PlanLesson, models.DO_NOTHING, verbose_name='номер урока')
     teacher = models.CharField(max_length=250, blank=True, null=True, verbose_name='преподаватель')

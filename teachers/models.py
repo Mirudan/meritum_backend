@@ -5,7 +5,7 @@ from diary.models import Subject
 
 
 class Teacher(models.Model):
-    user = models.OneToOneField(User, on_delete=models.DO_NOTHING)
+    user = models.OneToOneField(User, on_delete=models.DO_NOTHING, null=True, blank=True)
     teacher_id = models.AutoField(primary_key=True)
     photo = models.ImageField(upload_to='photos/teachers', verbose_name='Аватар', null=True, blank=True)
     full_name = models.TextField(verbose_name='Полное имя')
