@@ -50,7 +50,8 @@ class Mark(models.Model):
 
 class Schedule(models.Model):
     schedule_id = models.AutoField(primary_key=True)
-    specialization = models.ForeignKey(Specialization, models.DO_NOTHING, verbose_name='специализация')
+    specialization = models.ForeignKey(Specialization, models.DO_NOTHING, verbose_name='специализация', blank=True,
+                                       null=True)
     subject = models.ForeignKey(Subject, models.DO_NOTHING, verbose_name='предмет')
     classroom = models.IntegerField(blank=True, null=True, verbose_name='кабинет')
     class_field = models.ForeignKey(ClassField, models.DO_NOTHING, verbose_name='курс')
