@@ -12,22 +12,22 @@ class Migration(migrations.Migration):
         ('students', '0002_alter_student_options_student_photo_and_more'),
     ]
 
-    operations = [
-        migrations.RemoveField(
-            model_name='student',
-            name='email',
-        ),
-        migrations.RemoveField(
-            model_name='student',
-            name='login',
-        ),
-        migrations.RemoveField(
-            model_name='student',
-            name='password',
-        ),
-        migrations.AddField(
-            model_name='student',
-            name='user',
-            field=models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.DO_NOTHING, to=settings.AUTH_USER_MODEL),
-        ),
-    ]
+    # operations = [
+        # migrations.RemoveField(
+        #     model_name='student',
+        #     name='email',
+        # ),
+        # migrations.RemoveField(
+        #     model_name='student',
+        #     name='login',
+        # ),
+        # migrations.RemoveField(
+        #     model_name='student',
+        #     name='password',
+        # ),
+        # migrations.AddField(
+        #     model_name='student',
+        #     name='user',
+        #     field=models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.DO_NOTHING, to=settings.AUTH_USER_MODEL),
+        # ),
+    # ]

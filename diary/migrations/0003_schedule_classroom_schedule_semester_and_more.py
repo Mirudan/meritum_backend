@@ -12,26 +12,26 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AddField(
-            model_name='schedule',
-            name='classroom',
-            field=models.IntegerField(blank=True, null=True, verbose_name='кабинет'),
-        ),
-        migrations.AddField(
-            model_name='schedule',
-            name='semester',
-            field=models.IntegerField(blank=True, null=True, verbose_name='семестр'),
-        ),
-        migrations.AddField(
-            model_name='schedule',
-            name='teacher',
-            field=models.CharField(blank=True, max_length=250, null=True, verbose_name='преподаватель'),
-        ),
-        migrations.AddField(
-            model_name='schedule',
-            name='type_lesson',
-            field=models.CharField(blank=True, max_length=250, null=True, verbose_name='тип занятия'),
-        ),
+        # migrations.AddField(
+        #     model_name='schedule',
+        #     name='classroom',
+        #     field=models.IntegerField(blank=True, null=True, verbose_name='кабинет'),
+        # ),
+        # migrations.AddField(
+        #     model_name='schedule',
+        #     name='semester',
+        #     field=models.IntegerField(blank=True, null=True, verbose_name='семестр'),
+        # ),
+        # migrations.AddField(
+        #     model_name='schedule',
+        #     name='teacher',
+        #     field=models.CharField(blank=True, max_length=250, null=True, verbose_name='преподаватель'),
+        # ),
+        # migrations.AddField(
+        #     model_name='schedule',
+        #     name='type_lesson',
+        #     field=models.CharField(blank=True, max_length=250, null=True, verbose_name='тип занятия'),
+        # ),
         migrations.AlterField(
             model_name='planlesson',
             name='end_time',

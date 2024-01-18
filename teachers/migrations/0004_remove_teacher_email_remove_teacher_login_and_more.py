@@ -12,26 +12,26 @@ class Migration(migrations.Migration):
         ('teachers', '0003_alter_teacher_options'),
     ]
 
-    operations = [
-        migrations.RemoveField(
-            model_name='teacher',
-            name='email',
-        ),
-        migrations.RemoveField(
-            model_name='teacher',
-            name='login',
-        ),
-        migrations.RemoveField(
-            model_name='teacher',
-            name='password',
-        ),
-        migrations.RemoveField(
-            model_name='teacher',
-            name='subjects',
-        ),
-        migrations.AddField(
-            model_name='teacher',
-            name='user',
-            field=models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.DO_NOTHING, to=settings.AUTH_USER_MODEL),
-        ),
-    ]
+    # operations = [
+        # migrations.RemoveField(
+        #     model_name='teacher',
+        #     name='email',
+        # ),
+        # migrations.RemoveField(
+        #     model_name='teacher',
+        #     name='login',
+        # ),
+        # migrations.RemoveField(
+        #     model_name='teacher',
+        #     name='password',
+        # ),
+        # migrations.RemoveField(
+        #     model_name='teacher',
+        #     name='subjects',
+        # ),
+    #     migrations.AddField(
+    #         model_name='teacher',
+    #         name='user',
+    #         field=models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.DO_NOTHING, to=settings.AUTH_USER_MODEL),
+    #     ),
+    # ]
