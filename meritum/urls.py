@@ -21,10 +21,12 @@ schema_view = get_schema_view(
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
-                  # авторизация в системе по api/v1/auth/login/
-                  path('api/v1/auth/', include('rest_framework.urls')),
-                  # регистрация в системе по пути auth/users/
-                  path('auth/', include('djoser.urls')),
+                  # тестовая сессионая авторизация в системе по пути api/v1/drf-auth/login/
+                  path('api/v1/drf-auth/', include('rest_framework.urls')),
+                  # регистрация в системе по пути api/v1/auth/users/
+                  path('api/v1/auth/', include('djoser.urls')),
+                  # авторизация в системе по пути api/v1/auth/login/
+                  re_path(r'^auth/', include('djoser.urls.authtoken')),
                   # получение списка API адресов
                   path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
                   path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
