@@ -25,7 +25,7 @@ urlpatterns = [
                   path('api/v1/drf-auth/', include('rest_framework.urls')),
                   # регистрация в системе по пути api/v1/auth/users/
                   path('api/v1/auth/', include('djoser.urls')),
-                  # авторизация в системе по пути api/v1/auth/login/
+                  # авторизация в системе по пути auth/token/login/
                   re_path(r'^auth/', include('djoser.urls.authtoken')),
                   # получение списка API адресов
                   path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
@@ -37,4 +37,5 @@ urlpatterns = [
                   # path('api/v1/admins/', include('admins.urls')),
                   path('api/v1/students/', include('students.urls')),
                   path('api/v1/teachers/', include('teachers.urls')),
+                  path('api/v1/specialization', include('groups.urls')),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

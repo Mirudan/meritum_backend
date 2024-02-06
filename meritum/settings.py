@@ -170,7 +170,8 @@ DJOSER = {
     "USER_ID_FIELD": "username",
     "LOGIN_FIELD": "email",
     'SEND_CONFIRMATION_EMAIL': True,
-    'PASSWORD_RESET_CONFIRM_URL': 'reset_password/{uid}/{token}',
+    'PASSWORD_RESET_CONFIRM_URL': 'api/v1/auth/users/reset_password_confirm/{uid}/{token}',
+    'PASSWORD_RESET_CONFIRM_RETYPE': True,
     'EMAIL': {
         'confirmation': 'djoser.email.ConfirmationEmail',
         'password_reset': 'djoser.email.PasswordResetEmail',
